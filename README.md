@@ -2,6 +2,7 @@
 ### Tinglin Garden: Map & Memory | 亭林园：地图与记忆 · INFOSCI301 Final Project
 
 **Authors:** Yiwen Hu, Kexin Zhang
+
 **Live Demo:** 
 
 Tinglin Garden: Map & Memory is an interactive spatial storytelling platform that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan.
