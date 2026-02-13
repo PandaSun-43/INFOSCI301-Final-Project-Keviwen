@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亭林园 VR 测试版</title>
+    
+    <!-- 引入 Pannellum 库 -->
+    <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>亭林园 VR 漫游 (测试版)</h2>
+    <div id="panorama"></div>
+
+    <!-- 这里的顺序很重要：先加载场景数据，再加载 main.js -->
+    <script src="scenes/scene1.js"></script>
+    <script src="scenes/scene2.js"></script>
+    
+    <!-- 最后加载主逻辑 -->
+    <script src="main.js"></script>
+
+</body>
+</html>

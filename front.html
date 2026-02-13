@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinglin Garden: Map & Memory | 亭林园：地图与记忆</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        /* 保留你喜欢的背景色 */
+        --bg-gradient-start: #8FC8BF;
+        --bg-gradient-end: #6AA6A0;
+
+        /* 文字颜色优化：纯白用于深色底，深青用于强调 */
+        --text-light: #FFFFFF;
+        --text-dim: #E0F2F1;
+        --text-dark: #2C3E50; /* 用于可能得浅色卡片 */
+
+        /* 金色优化：稍微调深一点，增加对比度 */
+        --accent-gold: #FFD700; 
+        --accent-gold-text: #FAD02E; /* 用于文字，更亮 */
+
+        /* 统一卡片样式：加深底色，增强对比 */
+        --card-bg: rgba(0, 0, 0, 0.25); /* 加深了，原来是0.15 */
+        --card-border: rgba(255, 255, 255, 0.2);
+        --card-hover: rgba(0, 0, 0, 0.35);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+        font-family: 'Playfair Display', 'Noto Serif SC', serif;
+        color: var(--text-light);
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
+
+    /* === 银杏落叶 === */
+    .leaf-container {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; z-index: 0;
+    }
+    .leaf {
+        position: absolute; width: 15px; height: 15px;
+        background: rgba(255, 215, 0, 0.6); /* 亮金色 */
+        border-radius: 0 50% 0 50%;
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        0% { transform: translate(0, -10vh) rotate(0deg); opacity: 0; }
+        20% { opacity: 0.9; }
+        100% { transform: translate(100px, 110vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* === Hero Section === */
+    .hero {
+        position: relative; height: 85vh;
+        display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        background: linear-gradient(to bottom, rgba(62, 95, 105, 0.3), var(--bg-gradient-end)), url('pictures/tinglin.jpg') center/cover no-repeat fixed;
+        z-index: 1; padding: 0 20px;
+    }
+    .title-group {
+        border: 1px solid var(--card-border); padding: 50px 70px;
+        background: rgba(47, 72, 82, 0.65); /* 保持深色底，字看得清 */
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        animation: fadeInUp 1.2s ease-out;
+    }
+    h1 { font-size: 4.5rem; font-weight: 700; margin-bottom: 15px; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    h2 { font-size: 2rem; font-weight: 300; color: var(--text-dim); margin-bottom: 25px; }
+    .hero-divider { width: 80px; height: 3px; background: var(--accent-gold); margin: 25px auto; }
+    .intro-text.en { font-size: 1.3rem; letter-spacing: 0.02em; }
+    .intro-text.zh { font-size: 1.1rem; opacity: 0.95; letter-spacing: 0.08em; margin-top: 10px; }
+
+    /* === Quote Section (统一加深色框) === */
+    .quote-section {
+        text-align: center; 
+        max-width: 900px;
+        margin: 0 auto; /* 居中 */
+        padding: 50px 40px; 
+        position: relative; z-index: 2;
+        background: var(--card-bg); /* 加深底色 */
+        border-radius: 16px;
+        margin-top: -60px; /* 稍微向上叠一点 Hero，更有层次 */
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .quote-text { 
+        font-size: 2rem; /* 放大 */
+        font-weight: 700;
+        font-style: italic; 
+        color: var(--accent-gold-text); /* 亮金色 */
+        margin-bottom: 12px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .quote-text-en {
+        font-size: 1.4rem;
+        color: var(--text-light);
+        margin-bottom: 10px;
+        font-style: italic;
+    }
+    .quote-author { font-size: 1.1rem; color: var(--text-dim); letter-spacing: 1px; margin-top: 15px; }
+
+    /* === Portal Section === */
+    .portal-section {
+        display: flex; justify-content: center; gap: 50px; padding: 80px 20px; z-index: 2; flex-wrap: wrap;
+    }
+    .portal-card {
+        width: 450px; /* 加宽 */
+        padding: 50px; /* 加大内边距 */
+        background: var(--card-bg); /* 统一深色底 */
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        display: flex; flex-direction: column; align-items: flex-start;
+        cursor: pointer; transition: all 0.4s ease;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .portal-card:hover {
+        background: var(--card-hover);
+        transform: translateY(-10px);
+        border-color: var(--accent-gold);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .card-icon { font-size: 3.5rem; margin-bottom: 25px; color: var(--accent-gold); }
+    .card-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    .card-subtitle { font-size: 1.3rem; color: var(--text-dim); margin-bottom: 20px; font-family: 'Noto Sans SC'; }
+    .card-desc { 
+        font-size: 1.1rem; /* 放大 */
+        line-height: 1.7; 
+        color: var(--text-dim); 
+        font-family: 'Noto Sans SC'; 
+    }
+    .arrow-btn { 
+        margin-top: 30px; font-size: 1.4rem; color: var(--accent-gold); 
+        opacity: 0.8; transition: 0.3s; 
+    }
+    .portal-card:hover .arrow-btn { opacity: 1; transform: translateX(10px); }
+
+    /* === SDG Section (统一底色) === */
+    .sdg-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; z-index: 2; position: relative; }
+    .section-header h3 { font-size: 2.5rem; margin-bottom: 10px; }
+    .section-header p { font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 40px; }
+    
+    .sdg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px; }
+    .sdg-item {
+        display: flex; align-items: flex-start; gap: 25px; padding: 35px;
+        background: var(--card-bg); /* 统一深色底 */
+        border-radius: 14px;
+        border: 1px solid var(--card-border);
+        transition: transform 0.3s;
+    }
+    .sdg-item:hover { transform: translateY(-5px); background: var(--card-hover); }
+    .sdg-icon { width: 70px; flex-shrink: 0; }
+    .sdg-icon img { width: 56px; display: block; margin: 0 auto; }
+    .sdg-text h4 { 
+        color: var(--text-light); margin-bottom: 10px; font-size: 1.4rem; 
+        border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px; display: inline-block;
+    }
+    .sdg-text p { color: var(--text-dim); font-size: 1.05rem; line-height: 1.6; font-family: 'Noto Sans SC'; }
+
+    /* === Features Section (统一底色) === */
+    .features-section { max-width: 1200px; margin: 80px auto 120px; padding: 0 20px; position: relative; z-index: 2; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .feature-item {
+        background: var(--card-bg); /* 统一深色底 */
+        border: 1px solid var(--card-border);
+        padding: 40px 30px;
+        border-radius: 14px;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .feature-item:hover { border-color: var(--accent-gold); background: var(--card-hover); transform: translateY(-5px); }
+    .feature-emoji { font-size: 3rem; margin-bottom: 20px; display: block; }
+    .feature-h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--text-light); }
+    .feature-p { font-size: 1.1rem; color: var(--text-dim); font-family: 'Noto Sans SC'; line-height: 1.6; }
+
+    /* === Loader === */
+    .loader-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: #486B76; /* 与主背景接近的深色，防止闪烁 */
+        z-index: 9999; display: flex; justify-content: center; align-items: center;
+        transition: opacity 1s ease;
+    }
+    .loader-text { text-align: center; font-family: 'Noto Serif SC', serif; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .sdg-grid, .features-grid { grid-template-columns: 1fr; }
+        .hero { height: auto; padding: 120px 20px; }
+        .portal-card { width: 100%; }
+        h1 { font-size: 3rem; }
+    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+
+<body>
+
+<!-- Loading Screen -->
+<div class="loader-overlay" id="loader">
+    <div class="loader-text">
+        <p style="font-size: 2rem; color: #fff;">正在步入亭林园...</p>
+        <p style="font-size: 1.8rem; color: var(--accent-gold);">Entering Tinglin Garden...</p>
+    </div>
+</div>
+
+<!-- Ginkgo Leaves -->
+<div class="leaf-container" id="leafContainer"></div>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="title-group">
+        <h1>Tinglin Garden: Map and Memory</h1>
+        <h2>亭林园：地图与记忆</h2>
+        <div class="hero-divider"></div>
+        <p class="intro-text en">
+            Bridging the gap between <strong>Map (Cognition)</strong> and <strong>Memory (Experience)</strong>.
+        </p>
+        <p class="intro-text zh">
+            一座连接「空间认知」与「文化记忆」的数字园林。
+        </p>
+    </div>
+</div>
+
+<!-- Quote Section (Boxed Style) -->
+<div class="quote-section">
+    <p class="quote-text">"天下兴亡，匹夫有责"</p>
+    <p class="quote-text-en">"Every ordinary person is responsible for the rise and fall of the world."</p>
+    <p class="quote-author">—— 顾炎武 (Gu Yanwu, 1613-1682)</p>
+</div>
+
+<!-- Portal Section -->
+<div class="portal-section">
+    <div class="portal-card" onclick="window.location.href='tinglin_map_fixed.html'">
+        <div class="card-icon">🗺️</div>
+        <div class="card-title">Cognitive Layer</div>
+        <div class="card-subtitle">互动地图 · Interactive Map</div>
+        <p class="card-desc">
+            Explore the spatial structure of the garden through geospatial data.
+            <br>
+            <span style="font-size: 1rem; opacity: 0.8; margin-top: 8px; display:block;">探索园林空间结构，定位历史古迹。</span>
+        </p>
+        <div class="arrow-btn">Explore &rarr;</div>
+    </div>
+
+    <div class="portal-card" onclick="window.location.href='vr_tour_page.html'">
+        <div class="card-icon">👓</div>
+        <div class="card-title">Experiential Layer</div>
+        <div class="card-subtitle">虚拟游览 · VR Tour</div>
+        <p class="card-desc">
+            Immerse in 360° panoramas and connect with the living heritage.
+            <br>
+            <span style="font-size: 1rem; opacity: 0.8; margin-top: 8px; display:block;">沉浸于360°全景，体验文人漫步。</span>
+        </p>
+        <div class="arrow-btn">Enter VR &rarr;</div>
+    </div>
+</div>
+
+<!-- SDG Section -->
+<div class="sdg-section">
+    <div class="section-header">
+        <h3>SDG Alignment</h3>
+        <p>联合国可持续发展目标</p>
+    </div>
+    
+    <div class="sdg-grid">
+        <div class="sdg-item">
+            <div class="sdg-icon"><img src="pictures/sdg4.png" alt="SDG 4"></div>
+            <div class="sdg-text">
+                <h4>SDG 4: Quality Education</h4>
+                <p>Lowering cultural thresholds for international visitors.<br>降低国际游客的文化准入门槛。</p>
+            </div>
+        </div>
+        <div class="sdg-item">
+            <div class="sdg-icon"><img src="pictures/sdg9.png" alt="SDG 9"></div>
+            <div class="sdg-text">
+                <h4>SDG 9: Industry & Innovation</h4>
+                <p>Using open-source tools for low-cost digital innovation.<br>利用开源技术进行低成本创新。</p>
+            </div>
+        </div>
+        <div class="sdg-item">
+            <div class="sdg-icon"><img src="pictures/sdg11.png" alt="SDG 11"></div>
+            <div class="sdg-text">
+                <h4>SDG 11: Sustainable Cities</h4>
+                <p>Digital preservation of urban green spaces & heritage.<br>城市绿地与文化遗产的数字化保存。</p>
+            </div>
+        </div>
+        <div class="sdg-item">
+            <div class="sdg-icon"><img src="pictures/sdg17.png" alt="SDG 17"></div>
+            <div class="sdg-text">
+                <h4>SDG 17: Partnerships</h4>
+                <p>Connecting campus resources with local communities.<br>链接校园与社区，促进文化融合。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="features-section">
+    <div class="section-header">
+        <h3>Core Features</h3>
+        <p>核心功能亮点</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-item">
+            <span class="feature-emoji">📍</span>
+            <h3 class="feature-h3">Spatial Cognition<br>空间认知</h3>
+            <p class="feature-p">Accurate navigation based on OSM data.<br>基于实地数据的精准导航。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-emoji">📜</span>
+            <h3 class="feature-h3">Living Heritage<br>活态遗产</h3>
+            <p class="feature-p">Linking landmarks with Gu Yanwu's stories.<br>连接地标与文人轶事。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-emoji">👁️</span>
+            <h3 class="feature-h3">Digital Immersion<br>数字沉浸</h3>
+            <p class="feature-p">Lightweight WebVR without App download.<br>无需下载的轻量级 WebVR。</p>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.4); font-size: 1.5rem;">
+    <p>INFOSCI 301 Final Project: Team Keviwen</p>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        createLeaves();
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.remove(); }, 1000); 
+        }, 3500); 
+    });
+
+    function createLeaves() {
+        const container = document.getElementById('leafContainer');
+        const leafCount = 20; 
+        for (let i = 0; i < leafCount; i++) {
+            const leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            const startLeft = Math.random() * 100;
+            const duration = Math.random() * 5 + 8;
+            const delay = Math.random() * 5;
+            const size = Math.random() * 10 + 10;
+            leaf.style.left = startLeft + 'vw';
+            leaf.style.animationDuration = duration + 's';
+            leaf.style.animationDelay = delay + 's';
+            leaf.style.width = size + 'px';
+            leaf.style.height = size + 'px';
+            const hue = Math.random() * 20 + 40; 
+            leaf.style.backgroundColor = `hsla(${hue}, 80%, 60%, 0.6)`;
+            container.appendChild(leaf);
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pannellum Debugger</title>
+    <!-- 引入库 -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <style>
+        #panorama {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="panorama"></div>
+
+<script>
+// 初始化 viewer
+var viewer = pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "./images/3.jpg",
+    "autoLoad": true
+});
+    
+    document.getElementById('panorama').addEventListener('mousedown', function(event) {
+    // 不管按没按 Ctrl，只要鼠标点下去，就给我算坐标！
+    var coords = viewer.mouseEventToCoords(event);
+    
+    // 在 Console 里打印出来
+    console.log('Pitch:', coords[0]);
+    console.log('Yaw:', coords[1]);
+});
+</script>
+
+</body>
+</html>

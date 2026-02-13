@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+    background-color: #333; /*稍微改深一点护眼*/
+    color: white;
+    font-family: sans-serif;
+}
+#panorama {
+    width: 90vw;
+    height: 70vh; /*稍微加高一点，看得更爽*/
+    margin: auto;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
