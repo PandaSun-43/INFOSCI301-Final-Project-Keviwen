@@ -3,15 +3,15 @@
 
 **Authors:** Yiwen Hu, Kexin Zhang
 
-**Live Demo:** 
+**Live Demo:** https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
 
 Tinglin Garden: Map & Memory is an interactive spatial storytelling platform that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan.
 
 The project bridges:
 
-**Map (Cognitive Layer)** — spatial navigation & geospatial structure
+**Map (Cognitive Layer)** : spatial navigation & geospatial structure
 
-**Memory (Experiential Layer)** — cultural narratives & immersive VR experience
+**Memory (Experiential Layer)** : cultural narratives & immersive VR experience
 
 Built with **Python + Folium + Pannellum (WebVR)**, the project integrates interactive mapping, bilingual story cards, and 360° panoramas into a browser-based digital humanities interface.
 
