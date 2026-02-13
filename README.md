@@ -60,8 +60,7 @@ Pure HTML/CSS/JS + Python preprocessing
 
 ## 🗺️ Visualization
 
-👉 **Open the interactive map:**  
-
+👉 **Open the interactive map:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html
 
 The visualization includes:
 - Historical pavilions and architectural nodes
