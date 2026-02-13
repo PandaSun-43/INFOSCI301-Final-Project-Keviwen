@@ -4,10 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tinglin Garden Explorer</title>
+  
+  <!-- 1. Tailwind CDN (保持不变) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+  
+  <!-- 2. 尝试加载 SDK，如果失败不影响主逻辑 -->
+  <script>
+    window.onerror = function(msg, url, line) {
+        console.warn('Script Error (ignored):', msg);
+        return false; // 允许后续代码执行
+    };
+  </script>
+  <script src="/_sdk/element_sdk.js" onerror="console.log('SDK script not found, skipping.')"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  
   <style>
+    /* 3. 关键修复：手动添加 hidden 类，防止 Tailwind 加载失败导致布局错乱 */
+    .hidden { display: none !important; }
+
     body {
       box-sizing: border-box;
       margin: 0;
@@ -38,7 +53,7 @@
       position: relative;
       width: 100%;
       height: 70vh; 
-      border-radius: 16px; /* 圆角稍微加大 */
+      border-radius: 16px; 
       overflow: hidden;
       background: #fff;
     }
@@ -70,7 +85,7 @@
       border-radius: 16px;
       border: 1px solid rgba(100,160,140,0.2);
       background: #f0fdfa;
-      box-shadow: inner 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
     }
 
     /* Stagger animations */
@@ -135,9 +150,7 @@
    <header class="relative z-10 px-4 pt-6 pb-4 sm:px-8 sm:pt-10">
     <div class="flex items-center justify-between max-w-7xl mx-auto">
      <div>
-      <!-- (1) 修改：Title 字号加大 text-3xl -> text-5xl -->
       <h1 id="app-title" class="font-serif-cn text-3xl sm:text-5xl font-bold text-jade-dark tracking-wide stagger-in" style="animation-delay: 0.1s">Between Map and Memory</h1>
-      <!-- (1) 修改：Subtitle 字号加大 text-sm -> text-xl -->
       <p id="app-subtitle" class="text-base sm:text-xl text-jade-medium mt-2 font-body stagger-in" style="animation-delay: 0.2s">Tinglin Garden Interactive Explorer</p>
      </div>
      
@@ -146,16 +159,11 @@
      </div>
     </div>
     
-    <!-- (2) Welcome Text text-xs -> text-lg -->
     <p id="welcome-text" class="text-center text-jade-medium/70 text-lg sm:text-xl mt-4 max-w-6xl mx-auto stagger-in font-medium" style="animation-delay: 0.35s">Explore the cultural heritage of Kunshan</p>
     
-    <!-- (3) Tabs  -->
     <nav class="mt-6 max-w-6xl mx-auto stagger-in flex justify-center" style="animation-delay: 0.4s" aria-label="Main navigation">
-    
      <div class="relative inline-flex bg-white/40 rounded-full p-2 backdrop-blur-md border-2 border-jade-medium/30 shadow-md">
-     
       <div id="tab-indicator" class="tab-indicator absolute top-2 bottom-2 bg-white rounded-full shadow-sm" style="left: 8px; width: calc(50% - 8px);"></div>
-      
       <button id="tab-map" class="relative z-10 px-8 py-3 text-lg sm:text-xl font-bold rounded-full transition-colors text-jade-dark tracking-wide" onclick="switchTab('map')" aria-pressed="true"> <span id="map-tab-text">Map 地图</span> </button> 
       <button id="tab-memory" class="relative z-10 px-8 py-3 text-lg sm:text-xl font-bold rounded-full transition-colors text-jade-medium/60 tracking-wide" onclick="switchTab('memory')" aria-pressed="false"> <span id="memory-tab-text">Memory 记忆</span> </button>
      </div>
@@ -170,12 +178,11 @@
        <iframe src="tinglin_map_fixed.html" class="content-iframe" title="Tinglin Garden Map"></iframe>
      </div>
      <div class="mt-4 text-center">
-        
         <p class="text-base text-jade-medium/80 font-medium">Interact with the map above to explore locations.</p>
      </div>
     </section>
 
-    <!-- MEMORY VIEW -->
+    <!-- MEMORY VIEW (默认 hidden) -->
     <section id="view-memory" class="mt-6 hidden" role="region" aria-label="Cultural memories and stories">
      
      <div id="memory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -183,11 +190,8 @@
      </div>
 
      <div id="vr-container" class="hidden mt-8 animate-fade-in">
-      
       <div class="flex items-center justify-between mb-4">
-      
        <h2 id="vr-location-title" class="font-serif-cn text-2xl sm:text-3xl font-bold text-jade-dark"></h2>
-       
        <button onclick="closeMemory()" class="px-5 py-2.5 bg-jade-medium/20 text-jade-dark text-sm sm:text-base font-bold rounded-full hover:bg-jade-medium/30 transition-colors flex items-center gap-2 border border-jade-medium/20">
          <span class="text-lg">←</span> Back to Stories
        </button>
@@ -197,22 +201,18 @@
         <iframe id="memory-iframe" src="" class="content-iframe" title="Interactive Story"></iframe>
       </div>
       
-      
-      <p id="vr-description" class="mt-5 text-xl text-jade-medium/90 leading-relaxed font-serif-cn max-w-5xl mx-auto text-center font-medium"></p>
-     
+      <p id="vr-description" class="mt-6 text-xl text-jade-medium/90 leading-relaxed font-serif-cn max-w-5xl mx-auto text-center font-medium"></p>
      </div>
     </section>
    </main>
 
-   <!-- Footer -->
    <footer class="relative z-10 text-center pb-8 px-4">
-    
     <p class="text-sm sm:text-base text-jade-medium/60 font-serif-cn font-medium">亭林园 · Kunshan, Jiangsu · INFOSCI 301 Project</p>
    </footer>
   </div>
 
   <script>
-    // === DATA (Consistent with previous request) ===
+    // === DATA ===
     const MEMORY_STORIES = [
       {
         id: 'story-guyanwu',
@@ -321,7 +321,7 @@
       text_color: '#2d5a52'
     };
 
-    // === TAB SWITCHING (With visual updates) ===
+    // === TAB SWITCHING ===
     function switchTab(tab) {
       currentTab = tab;
       const mapView = document.getElementById('view-map');
@@ -350,7 +350,7 @@
       }
     }
 
-    // === MEMORY GRID RENDERING (Large Font) ===
+    // === MEMORY GRID RENDERING ===
     function renderMemoryGrid() {
       const grid = document.getElementById('memory-grid');
       
@@ -359,9 +359,9 @@
                  style="animation-delay: ${0.1 + i * 0.1}s" 
                  onclick="openMemory(${i})" 
                  tabindex="0" role="button" aria-label="Read about ${story.title}">
-          <div class="p-8"> <!-- 加大 padding -->
+          <div class="p-8">
             <div class="flex items-start justify-between mb-5">
-              <span class="text-5xl">${story.icon}</span> <!-- text-4xl -> text-5xl -->
+              <span class="text-5xl">${story.icon}</span>
               <span class="text-base text-jade-medium/70 font-serif-cn font-medium tracking-wide bg-white/50 px-3 py-1 rounded-md shadow-sm border border-jade-medium/10">${story.era}</span>
             </div>
             
@@ -381,7 +381,7 @@
       `).join('');
     }
 
-    // === MEMORY DETAIL LOGIC (Large Font) ===
+    // === MEMORY DETAIL LOGIC ===
     function openMemory(index) {
       const story = MEMORY_STORIES[index];
       const grid = document.getElementById('memory-grid');
@@ -394,11 +394,9 @@
       grid.classList.add('hidden');
       container.classList.remove('hidden');
 
-      // Title Text: text-3xl -> text-4xl/5xl
       titleEl.className = "font-serif-cn text-3xl sm:text-5xl font-bold text-jade-dark mb-2 tracking-wide"; 
       titleEl.innerText = `${story.icon} ${story.title} · ${story.titleCn}`;
       
-      // Desc Text: text-xl -> text-2xl
       descEl.className = "mt-8 text-xl sm:text-2xl text-jade-dark/80 leading-loose font-serif-cn max-w-5xl mx-auto font-medium"; 
       descEl.innerText = story.detail;
 
@@ -431,7 +429,7 @@
       }
     }
 
-    // === ELEMENT SDK (Updated multipliers) ===
+    // === ELEMENT SDK ===
     function applyConfig(config) {
       const title = config.app_title || defaultConfig.app_title;
       const subtitle = config.subtitle || defaultConfig.subtitle;
@@ -442,7 +440,7 @@
       const surfaceColor = config.surface_color || defaultConfig.surface_color;
       const textColor = config.text_color || defaultConfig.text_color;
       const fontFamily = config.font_family ? `${config.font_family}, ` : '';
-      const baseSize = config.font_size || 16; // 虽然 baseSize 是 16，但我们会乘更大的系数
+      const baseSize = config.font_size || 16; 
 
       document.getElementById('app-title').textContent = title;
       document.getElementById('app-subtitle').textContent = subtitle;
@@ -450,7 +448,6 @@
       document.getElementById('map-tab-text').textContent = mapLabel;
       document.getElementById('memory-tab-text').textContent = memLabel;
 
-      // Colors
       const app = document.getElementById('app');
       app.style.background = `linear-gradient(135deg, ${bgColor} 0%, ${surfaceColor} 50%, ${bgColor} 100%)`;
       
@@ -458,7 +455,6 @@
       document.getElementById('app-subtitle').style.color = textColor + 'bb';
       document.getElementById('welcome-text').style.color = textColor + '80';
 
-      // Fonts
       const serifStack = `${fontFamily}'Noto Serif SC', serif`;
       const bodyStack = `${fontFamily}'DM Sans', sans-serif`;
       
@@ -466,44 +462,29 @@
       document.getElementById('app-subtitle').style.fontFamily = bodyStack;
       document.getElementById('welcome-text').style.fontFamily = bodyStack;
 
-      // (3)Font Size Scaling Multipliers
-      // Title: base * 2.5 (PC: * 3.5)
-      // Subtitle: base * 1.2
-      // Welcome: base * 1.25
       document.getElementById('app-title').style.fontSize = `${baseSize * 3}px`;
       document.getElementById('app-subtitle').style.fontSize = `${baseSize * 1.5}px`;
       document.getElementById('welcome-text').style.fontSize = `${baseSize * 1.3}px`;
     }
 
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig: defaultConfig,
-        onConfigChange: async (config) => { applyConfig(config); },
-        mapToCapabilities: (config) => ({
-          recolorables: [
-            { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-            { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-            { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } }
-          ],
-          borderables: [],
-          fontEditable: { get: () => config.font_family || defaultConfig.font_family || '', set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
-          fontSizeable: { get: () => config.font_size || defaultConfig.font_size || 16, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
-        }),
-        mapToEditPanelValues: (config) => new Map([
-          ['app_title', config.app_title || defaultConfig.app_title],
-          ['subtitle', config.subtitle || defaultConfig.subtitle],
-          ['welcome_text', config.welcome_text || defaultConfig.welcome_text],
-          ['map_tab_label', config.map_tab_label || defaultConfig.map_tab_label],
-          ['memory_tab_label', config.memory_tab_label || defaultConfig.memory_tab_label]
-        ])
-      });
-    }
-
-    // === INIT ===
+    // 确保 DOM 加载后执行一次
     document.addEventListener('DOMContentLoaded', () => {
       renderMemoryGrid();
       initParticles();
-      applyConfig(defaultConfig);
+      // 初始化时尝试加载配置
+      if (window.elementSdk) {
+        window.elementSdk.init({
+            defaultConfig: defaultConfig,
+            onConfigChange: async (config) => { applyConfig(config); },
+            mapToCapabilities: (config) => ({
+                recolorables: [], borderables: [], fontEditable: {}, fontSizeable: {}
+            }),
+            mapToEditPanelValues: (config) => new Map()
+        });
+      } else {
+        // 如果 SDK 没加载，直接应用默认配置
+        applyConfig(defaultConfig);
+      }
     });
   </script>
  </body>
