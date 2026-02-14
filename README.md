@@ -61,12 +61,13 @@ These two modes provide complementary perspectives on the same cultural dataset.
 ## 🗺️ Visualization
 
 👉 **Start from our dashboard:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
+
 👉 **Open the interactive map:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html 
 
 
 ## 🛠️ Technical Workflow
 
-### **1. Data Processing (Python)**
+#### **1. Data Processing (Python)**
 - Manually curated landmark dataset
 - Bilingual metadata encoding (CN/EN)
 - Thematic classification (Pavilion, Museum, Monument, Garden…)
@@ -74,14 +75,14 @@ These two modes provide complementary perspectives on the same cultural dataset.
 
 Output structured inputs for Folium map generation.
 
-### **2. Interactive Map Construction (Folium)**
+#### **2. Interactive Map Construction (Folium)**
 - Basemap rendering (OpenStreetMap)
 - Category Identification and Marker
 - Custom HTML/CSS popup cards
 - Embedded image previews
 - Export standalone HTML file
 
-### **3. Immersive VR Layer (Pannellum)**
+#### **3. Immersive VR Layer (Pannellum)**
 - 360° panorama capture
 - Scene configuration (scene1–sceneN)
 - Scene linking via hotspot navigation
@@ -89,7 +90,7 @@ Output structured inputs for Folium map generation.
 
 Pannellum enables browser-based 360° panorama interaction without requiring additional software installation.
 
-### **4. Deployment**
+#### **4. Deployment**
 - Static HTML export
 - Asset folder structuring
 - GitHub Pages hosting
