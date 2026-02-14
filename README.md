@@ -117,13 +117,34 @@ Rather than treating heritage sites as static points, we frame Tinglin Garden as
 
 ```plaintext
 INFOSCI301-Final-Project-Keviwen/
-
 │
-├── pictures/                  # Site images & SDG icons
-├── scenes/                    # VR scene configuration files
-├── images/                    # 360° panoramas
-├── app.py                     # Folium interactive map generator
-├── tinglin_map_fixed.html     # Exported interactive map
-├── vr_tour_page.html          # VR entry page
-├── index.html                 # Homepage (Map & Memory interface)
+├── dashboard.html (Project Entry Page, Brief introduction and SDG alignment)
+├── app.html (Main Interactive Interface)
+├── detail_robot.html (Dedicated page for the “Robot Drink Service” site.)
+├── tinglin_map_fixed.html (interactive map output.)
+├── tinglin_map.ipynb (Data Preprocessing Notebook)
+│
+├── pictures/ (All images used in popup cards)
+│
+├── VR/ (Panorama image assets, Memory-specific HTML files)
+│   ├── dragon/
+      └── memory_dragon.html
+      └── images
+      └── scenes.js
+      └── main.js
+      └── style.css
+    ├── guyanwu/
+      └── memory_guyanwu.html
+      └── images
+      └── scenes.js
+      └── main.js
+      └── style.css
+│   ├── kunqu/
+      └── memory_kunqu.html
+      └── images
+      └── scenes.js
+      └── main.js
+      └── style.css
+│   ├── ...
+│
 └── README.md
