@@ -9,7 +9,7 @@ Tinglin Garden: Map & Memory is an interactive spatial storytelling platform tha
 
 The project bridges:
 
-**Map (Cognitive Layer)** : spatial navigation & geospatial structure
+**Map (Analytical Layer)** : spatial navigation & geospatial structure
 
 **Memory (Experiential Layer)** : cultural narratives & immersive VR experience
 
@@ -19,54 +19,48 @@ The entire system is deployed as a fully static GitHub Pages site, requiring no 
 
 ## ✨ Key Features
 
-- 🗺 **Interactive Cultural Map** (Folium-based)
+🗺 **Interactive Cultural Map (Folium-based)** 
 
-Geolocated heritage sites
+- Geolocated heritage sites: All heritage locations are mapped using real geographic coordinates and rendered through Folium.
 
-Bilingual popup cards (CN/EN)
+- Bilingual popup cards (CN/EN): Each site has bilingual descriptions to improve accessibility for both local and international audiences.
 
-Thematic categorization (Pavilions, Museums, Gardens, Monuments)
+- Thematic categorization: Cultural sites are organized into thematic layers (e.g., Pavilions, Museums, Gardens, Monuments), supporting structured exploration and comparative viewing.
 
-- 👓 **WebVR Immersive Tour**
+👓 **Web-based 360° Panorama Exploration**
 
-360° panorama viewing (Pannellum)
+- 360° panorama viewing (Pannellum): Equirectangular images are rendered client-side using a lightweight JavaScript viewer.
 
-Scene-to-scene navigation
+- Scene-to-scene navigation: Spatial transitions are implemented through interactive hotspots, allowing users to move between connected locations.
 
-Lightweight browser-based experience  
+- Lightweight browser-native implementation: The VR component runs entirely in standard web browsers without requiring additional software or hardware.  
 
-- 📍 **Narrative Geospatial Design**
+📍 **Spatial Narrative Structure**
 
-Each location functions as a “memory node”
+- Each location as narrative unit: Each mapped site functions as an informational node combining spatial position and cultural context (pop-up card).
 
-Spatial structure reflects philosophical themes
+- Story-informed spatial linking: Cultural landmarks are connected through interpretive descriptions to encourage contextual understanding.
 
-Cultural landmarks connected through storytelling
 
-🌳 **Cognitive + Experiential Dual Interface**
+🌳 **Dual Interaction Modes**
 
-Users may explore analytically (map layer)
+- Analytical exploration (Map interface): The map interface supports spatial comparison and infomation understanding.
 
-Or immerse emotionally (VR layer)
+- Experiential exploration (Panorama interface): The 360° interface supports embodied spatial perception and environmental immersion.
 
-🌐 **Fully Static Deployment**
+These two modes provide complementary perspectives on the same cultural dataset.
 
-No database
+🌐 **Static Web Architecture**
 
-No server dependency
+- Client-side implementation only: The project is implemented entirely using HTML, CSS, JavaScript, and Python preprocessing.
 
-Pure HTML/CSS/JS + Python preprocessing
+- No backend or database dependency: All assets are served as static files, enabling deployment on platforms such as GitHub Pages.
 
+- Portable and reproducible structure: The project can be cloned and deployed without server configuration.
 
 ## 🗺️ Visualization
 
-👉 **Open the interactive map:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html
-
-The visualization includes:
-- Historical pavilions and architectural nodes
-- Gu Yanwu memorial sites and philosophical references
-- Cultural bridges and symbolic landmarks
-- Garden landscape narrative sequencing
+👉 **Open the interactive map:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html 
 
 Each marker is not merely a location. It represents a cultural memory interface.
 
