@@ -1,21 +1,21 @@
 # INFOSCI301-Final-Project-Keviwen
-### Tinglin Garden: Map & Memory | 亭林园：地图与记忆 · INFOSCI301 Final Project
+## Tinglin Garden: Map & Memory | 亭林园：地图与记忆 · INFOSCI301 Final Project
 
 **Authors:** Yiwen Hu, Kexin Zhang
 
 **Live Demo:** https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
 
-Tinglin Garden: Map & Memory is an interactive spatial storytelling platform that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan.
+Tinglin Garden: Map & Memory is an interactive spatial visualization project that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan.
 
-The project bridges:
+The project integrates two complementary layers:
 
 **Map (Analytical Layer)** : spatial navigation & geospatial structure
 
-**Memory (Experiential Layer)** : cultural narratives & immersive VR experience
+**Memory (Experiential Layer)** : cultural narratives through 360° panoramic scenes
 
-Built with **Python + Folium + Pannellum (WebVR)**, the project integrates interactive mapping, bilingual story cards, and 360° panoramas into a browser-based digital humanities interface.
+Built with **Python, Folium, Pannellum**, the project combines geospatial mapping, structured story cards, and browser-based panorama rendering within a digital humanities framework.
 
-The entire system is deployed as a fully static GitHub Pages site, requiring no backend.
+The entire system is deployed via GitHub Pages, requiring no backend.
 
 ## ✨ Key Features
 
@@ -60,9 +60,8 @@ These two modes provide complementary perspectives on the same cultural dataset.
 
 ## 🗺️ Visualization
 
+👉 **Start from our dashboard:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
 👉 **Open the interactive map:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html 
-
-Each marker is not merely a location. It represents a cultural memory interface.
 
 
 ## 🛠️ Technical Workflow
@@ -77,7 +76,7 @@ Output structured inputs for Folium map generation.
 
 ### **2. Interactive Map Construction (Folium)**
 - Basemap rendering (OpenStreetMap)
-- Marker clustering & category grouping
+- Category Identification and Marker
 - Custom HTML/CSS popup cards
 - Embedded image previews
 - Export standalone HTML file
@@ -88,30 +87,32 @@ Output structured inputs for Folium map generation.
 - Scene linking via hotspot navigation
 - Lightweight browser-based rendering
 
-Pannellum enables WebVR without requiring any application download.
+Pannellum enables browser-based 360° panorama interaction without requiring additional software installation.
 
 ### **4. Deployment**
 - Static HTML export
 - Asset folder structuring
 - GitHub Pages hosting
-- Cross-browser compatibility validation
 
 ## 🌍 UN SDG Contributions
 
 | Goal | Contribution |
 |------|--------------|
 | **SDG 4 – Quality Education** | Accessible bilingual cultural learning through spatial storytelling |
-| **SDG 9 – Industry, Innovation & Infrastructure** | Open-source WebVR + digital mapping innovation |
+| **SDG 9 – Industry, Innovation & Infrastructure** | Application of open-source web-based visualization tools |
 | **SDG 11 – Sustainable Cities & Communities** | Digital preservation of urban cultural heritage |
 | **SDG 17 – Partnerships for the Goals** | Linking university research with local cultural memory |
 
 ## 🏛 Conceptual Framework
-This project proposes:
-- The Garden as an Interface.
-- The Map as Cognition.
-- The Panorama as Memory.
+This project conceptualizes:
 
-Rather than treating heritage sites as static points, we frame Tinglin Garden as a dynamic cultural memory network.
+- The garden as an interactive spatial system
+
+- The map as a cognitive navigation structure
+
+- The panorama as a site-specific experiential layer
+
+Rather than treating heritage sites as isolated points, the project models Tinglin Garden as a network of spatially connected cultural nodes.
 
 ## 📁 Repository Structure
 
