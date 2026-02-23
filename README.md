@@ -1,7 +1,7 @@
 # INFOSCI301-Final-Project-Keviwen
 ## Tinglin Garden: Map & Memory | 亭林园：地图与记忆 · INFOSCI301 Final Project
 
-**Authors:** Yiwen Hu, Kexin Zhang
+**Authors:** Lydia Hu, Kelsey Zhang
 
 **Live Demo:** https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
 
@@ -123,7 +123,7 @@ INFOSCI301-Final-Project-Keviwen/
 ├── dashboard.html (Project Entry Page, Brief introduction and SDG alignment)
 ├── app.html (Main Interactive Interface)
 ├── detail_robot.html (Dedicated page for the “Robot Drink Service” site.)
-├── tinglin_map_fixed.html (interactive map output.)
+├── tinglin_map_with_tours.html (interactive map output.)
 ├── tinglin_map.ipynb (Data Preprocessing Notebook)
 │
 ├── pictures/ (All images used in popup cards)
