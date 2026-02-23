@@ -1,11 +1,9 @@
 # INFOSCI301-Final-Project-Keviwen
-## Tinglin Garden: Map & Memory | 亭林园：地图与记忆 · INFOSCI301 Final Project
+## Tinglin Garden: Between Map & Memory | 亭林园：地图与记忆 · INFOSCI301 Final Project
 
 **Authors:** Lydia Hu, Kelsey Zhang
 
-**Live Demo:** https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
-
-Tinglin Garden: Map & Memory is an interactive spatial visualization project that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan.
+Tinglin Garden: Between Map & Memory is an interactive spatial visualization project that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan.
 
 The project integrates two complementary layers:
 
@@ -16,6 +14,13 @@ The project integrates two complementary layers:
 Built with **Python, Folium, Pannellum**, the project combines geospatial mapping, structured story cards, and browser-based panorama rendering within a digital humanities framework.
 
 The entire system is deployed via GitHub Pages, requiring no backend.
+
+## 🗺️ Visualization
+
+👉 **Start from our dashboard:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
+
+👉 **Open the interactive tour:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html 
+
 
 ## ✨ Key Features
 
@@ -57,12 +62,6 @@ These two modes provide complementary perspectives on the same cultural dataset.
 - No backend or database dependency: All assets are served as static files, enabling deployment on platforms such as GitHub Pages.
 
 - Portable and reproducible structure: The project can be cloned and deployed without server configuration.
-
-## 🗺️ Visualization
-
-👉 **Start from our dashboard:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/dashboard.html
-
-👉 **Open the interactive map:**  https://pandasun-43.github.io/INFOSCI301-Final-Project-Keviwen/app.html 
 
 
 ## 🛠️ Technical Workflow
