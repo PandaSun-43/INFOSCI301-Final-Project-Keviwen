@@ -34,7 +34,6 @@
         body {
             font-family: 'Source Sans 3', 'Noto Serif SC', sans-serif;
             color: var(--text-light);
-            /* (4) 修改：基础字号稍微变大 */
             font-size: 18px; 
             line-height: 1.7;
             overflow-x: hidden;
@@ -72,14 +71,14 @@
         /* ===== Hero Section ===== */
         .hero-section {
             text-align: center;
-            padding: 80px 20px 60px; /* 稍微增加内边距以适应背景图 */
+            padding: 80px 20px 60px; 
             animation: fadeSlideDown 1s ease-out;
             position: relative;
             border-radius: 0 0 24px 24px;
-            margin: -40px -24px 40px;
+            margin: -40px -24px 40px; 
             
-            /* (1) pictures files header */
-            /*  linear-gradient 叠加一层半透明色 */
+            /* (1) pictures */
+            /* linear-gradient */
             background: 
                 linear-gradient(to bottom, rgba(143, 200, 191, 0.9), rgba(106, 166, 160, 0.8)),
                 url('pictures/tinglin.jpg'); 
@@ -97,7 +96,7 @@
         }
         .hero-title {
             font-family: 'Playfair Display', 'Noto Serif SC', serif;
-            font-size: 2.8rem; 
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--text-light);
             letter-spacing: 0.02em;
@@ -106,7 +105,7 @@
         }
         .hero-subtitle {
             font-family: 'Noto Serif SC', serif;
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
             color: var(--accent-gold-text);
             font-weight: 600;
             letter-spacing: 0.15em;
@@ -151,7 +150,7 @@
         }
         .quote-text {
             font-family: 'Noto Serif SC', serif;
-            font-size: 1.8rem; 
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--accent-gold-text);
             margin-bottom: 12px;
@@ -160,7 +159,7 @@
         .quote-text-en {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.15rem; 
+            font-size: 1.15rem;
             color: var(--text-dim);
             margin-bottom: 16px;
         }
@@ -177,7 +176,7 @@
         }
         .section-header h3 {
             font-family: 'Playfair Display', 'Noto Serif SC', serif;
-            font-size: 1.8rem; 
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-light);
             margin-bottom: 6px;
@@ -216,17 +215,17 @@
         }
         .sdg-icon {
             flex-shrink: 0;
-            width: 70px; /* 图标尺寸稍微加大 */
+            width: 70px; /* image size */
             height: 70px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: rgba(255,255,255,0.1); /* 图片加载前的底色 */
+            background: rgba(255,255,255,0.1); 
         }
         
-        /* (2) 修改：新增 SDG 图片样式，保证填满容器 */
+        /* (2) SDG img */
         .sdg-img-file {
             width: 100%;
             height: 100%;
@@ -317,7 +316,7 @@
             pointer-events: none;
         }
         .cta-label {
-            font-size: 0.9rem;
+            font-size: 0.9rem; 
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--accent-gold-text);
@@ -326,14 +325,14 @@
         }
         .cta-heading {
             font-family: 'Playfair Display', 'Noto Serif SC', serif;
-            font-size: 2rem;
+            font-size: 2rem; 
             font-weight: 700;
             color: var(--text-light);
             margin-bottom: 10px;
         }
         .cta-subheading {
             font-family: 'Noto Serif SC', serif;
-            font-size: 1.1rem; 
+            font-size: 1.1rem; /* 字号变大 */
             color: var(--accent-gold-text);
             margin-bottom: 28px;
             letter-spacing: 0.08em;
@@ -377,6 +376,57 @@
             color: rgba(255,255,255,0.4);
             margin-top: 20px;
         }
+
+      /* ===== QR Code Section ===== */
+        .qr-code-section {
+            margin: 64px 0 40px;
+            animation: fadeSlideUp 0.8s ease-out 1s both; /* Appears slightly after CTA */
+        }
+        .qr-code-box {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+        }
+        .qr-code-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            flex-shrink: 0;
+            background: white; /* Shows a white box while the QR code loads */
+        }
+        .qr-code-text h3 {
+            font-family: 'Source Sans 3', 'Noto Serif SC', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .qr-code-text p {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+        
+        /* Make QR section responsive */
+        @media (max-width: 600px) {
+            .qr-code-box {
+                flex-direction: column; /* Stack image and text vertically */
+                text-align: center;
+                gap: 24px;
+                padding: 32px 24px;
+            }
+            .qr-code-image {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
 
         /* ===== Footer ===== */
         .footer-section {
@@ -457,14 +507,58 @@
       <p class="quote-text">"天下兴亡，匹夫有责"</p>
       <p class="quote-text-en">"Every ordinary person is responsible for the rise and fall of the world."</p>
       <p class="quote-author">—— 顾炎武 (Gu Yanwu, 1613-1682)</p>
-     </section><!-- SDG Section -->
+     </section>
+
+        
+    <!-- Features Section -->
+     <section class="features-section" aria-label="Core Features">
+      <div class="section-header">
+       <h2>Motivation and Opportunity</h2>
+       <p>项目动机与机遇</p>
+      </div>
+      <div class="features-grid">
+       <div class="feature-item"><span class="feature-emoji">📍</span>
+        <h3 class="feature-h3">Geospatial Navigation<br>
+         地理空间导航</h3>
+        <p class="feature-p">Interactive map based on OpenStreetMap data with accurate, easy-to-understand geospatial navigation to key landmarks.<br>
+          基于 OpenStreetMap 的交互式地图，展示真实地理坐标, 优化游览体验。</p>
+       </div>
+       <div class="feature-item"><span class="feature-emoji">📜</span>
+        <h3 class="feature-h3">Contextual Site Information<br>
+         场所文化信息</h3>
+        <p class="feature-p">Digital resources often face language barriers. We provide a bilingual interface to make the garden's rich culture accessible to a global audience.<br>
+          通过中英双语介绍呈现场所与历史背景的关联, 降低文化壁垒。</p>
+       </div>
+       <div class="feature-item"><span class="feature-emoji">👁️</span>
+        <h3 class="feature-h3">360° Panorama Viewing<br>
+         360° 全景浏览</h3>
+        <p class="feature-p">Browser-based panoramic scenes rendered with Pannellum, allowing users to virtually stand in the garden, creating a deeper connection..<br>
+         使用 Pannellum 在浏览器中呈现 360° 场景，让用户身临其境，感受园林之美。</p>
+       </div>
+      </div>
+     </section>
+
+    <!-- ========== START: NEW WORKFLOW SECTION ========== -->
+    <section class="workflow-section" aria-label="Project Workflow">
+        <div class="section-header">
+            <h2>Our Workflow</h2>
+            <p>项目工作流程</p>
+        </div>
+        <div class="workflow-container">
+            <!-- User-provided SVG diagram -->
+            <img src="pictures/workflow-diagram.svg" alt="Project workflow diagram showing input, transformation, construction, and interaction" class="workflow-image">
+        </div>
+    </section>
+    <!-- ========== END: NEW WORKFLOW SECTION ========== -->
+        
+    <!-- SDG Section -->
      <section class="sdg-section" aria-label="SDG Alignment">
       <div class="section-header">
        <h2>SDG Alignment</h2>
        <p>联合国可持续发展目标</p>
       </div>
       <div class="sdg-grid">
-       <!-- (2)  SDG 4 image -->
+       <!-- (2) SDG 4 img -->
        <div class="sdg-item">
         <div class="sdg-icon">
          <img src="pictures/sdg4.png" alt="SDG 4" class="sdg-img-file">
@@ -475,14 +569,14 @@
           降低国际游客的文化准入门槛。</p>
         </div>
        </div>
-       <!-- (2)  SDG 9 image -->
+       <!-- (2) SDG 9  -->
        <div class="sdg-item">
         <div class="sdg-icon">
          <img src="pictures/sdg9.png" alt="SDG 9" class="sdg-img-file">
         </div>
         <div class="sdg-text">
          <h3>SDG 9: Industry, Innovation, and Infrastructure</h3>
-         <p>Application of open-source web-based visualization tools.<br>
+         <p>Using open-source tools for low-cost digital innovation.<br>
           应用开源的基于web的可视化工具。</p>
         </div>
        </div>
@@ -497,56 +591,47 @@
           城市绿地与文化遗产的数字化保存。</p>
         </div>
        </div>
-       <!-- (2) 修改：替换 SDG 17 图标 -->
+       <!-- (2) SDG 17  -->
        <div class="sdg-item">
         <div class="sdg-icon">
          <img src="pictures/sdg17.png" alt="SDG 17" class="sdg-img-file">
         </div>
         <div class="sdg-text">
          <h3>SDG 17: Partnerships For the Goals</h3>
-         <p>Connecting university project with local communities.<br>
-          链接校园项目与本地社区。</p>
+         <p>Connecting university projects with local communities.<br>
+          链接校园项目与本地社区，促进文化融合。</p>
         </div>
        </div>
       </div>
-     </section><!-- Features Section -->
-     <section class="features-section" aria-label="Core Features">
-      <div class="section-header">
-       <h2>Core Features</h2>
-       <p>核心功能亮点</p>
-      </div>
-      <div class="features-grid">
-       <div class="feature-item"><span class="feature-emoji">📍</span>
-        <h3 class="feature-h3">Geospatial Navigation<br>
-         地理空间导航</h3>
-        <p class="feature-p">Interactive map based on OpenStreetMap data with accurate site locations.<br>
-          基于 OpenStreetMap 的交互式地图，展示真实地理坐标。</p>
-       </div>
-       <div class="feature-item"><span class="feature-emoji">📜</span>
-        <h3 class="feature-h3">Contextual Site Information<br>
-         场所文化信息</h3>
-        <p class="feature-p">Bilingual descriptions connecting landmarks with historical context.<br>
-          通过中英双语介绍呈现场所与历史背景的关联。</p>
-       </div>
-       <div class="feature-item"><span class="feature-emoji">👁️</span>
-        <h3 class="feature-h3">360° Panorama Viewing<br>
-         360° 全景浏览</h3>
-        <p class="feature-p">Browser-based panoramic scenes rendered with Pannellum.<br>
-         使用 Pannellum 在浏览器中呈现 360° 场景，无需额外安装。</p>
-       </div>
-      </div>
-     </section><!-- CTA Section -->
+     </section>
+
+    <section class="qr-code-section" aria-label="Access on Mobile">
+    <div class="section-header">
+        <h2>Access on Mobile</h2>
+        <p>在移动设备上访问</p>
+    </div>
+    <div class="qr-code-box">
+        <img src="pictures/qr-code.png" alt="QR Code to access the interactive map" class="qr-code-image">
+        <div class="qr-code-text">
+            <h3>Scan & Go</h3>
+            <p>Open your phone's camera and point it at the code to instantly launch the interactive experience.<br>
+            打开手机相机扫描二维码，立即开始您的互动探索之旅。</p>
+        </div>
+    </div>
+    </section>
+        
+    <!-- CTA Section -->
      <section class="cta-section" aria-label="Enter Interactive Experience">
       <div class="cta-box">
        <p class="cta-label">Ready to Explore? · 准备好了吗？</p>
        <h2 class="cta-heading">Enter the Interactive Map</h2>
        <p class="cta-subheading">进入互动地图体验</p>
-       <!-- (3) CTA 按钮，JS 会处理跳转 -->
+       <!-- (3) CTA --JS  -->
        <button class="cta-button" id="cta-button" type="button" aria-label="Enter Interactive Experience"> 
            <span id="cta-button-text">Enter Interactive Experience →</span> 
            <span class="cta-button-arrow">🗺️</span> 
        </button>
-       <p class="cta-hint">Explore Tinglin Garden with bilingual map, heritage stories, and VR panoramas</p>
+       <p class="cta-hint">Explore Tinglin Garden with bilingual map, heritage stories, and 360° panoramas</p>
       </div>
      </section>
     </main><!-- Footer -->
@@ -595,7 +680,7 @@
             // Colors
             const wrapper = document.getElementById('app-wrapper');
             if (wrapper) {
-                // (1)  gradient 能够适应可能的动态变化，但主要依赖 CSS 类
+                // (1) gradient, CSS
                 wrapper.style.background = `linear-gradient(160deg, ${bgColor} 0%, ${secondaryColor} 50%, ${adjustColor(secondaryColor, -20)} 100%)`;
             }
 
@@ -732,7 +817,7 @@
                 }
             });
         } else {
-            // if no SDK，apply manually
+            // if no SDK，default
             applyConfig(defaultConfig);
         }
     </script>
