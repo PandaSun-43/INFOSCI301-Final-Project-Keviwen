@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tinglin Garden Explorer</title>
   
-  <!-- 1. Tailwind CDN (保持不变) -->
+  <!-- 1. Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- 2. 尝试加载 SDK，如果失败不影响主逻辑 -->
+  <!-- 2. SDK -->
   <script>
     window.onerror = function(msg, url, line) {
         console.warn('Script Error (ignored):', msg);
-        return false; // 允许后续代码执行
+        return false; 
     };
   </script>
   <script src="/_sdk/element_sdk.js" onerror="console.log('SDK script not found, skipping.')"></script>
@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   
   <style>
-    /* 3. 关键修复：手动添加 hidden 类，防止 Tailwind 加载失败导致布局错乱 */
+    /* 3. hidden 类，防止 Tailwind 加载失败导致布局错乱 */
     .hidden { display: none !important; }
 
     body {
@@ -175,14 +175,14 @@
     <!-- MAP VIEW -->
     <section id="view-map" class="mt-6" role="region" aria-label="Interactive garden map">
      <div class="garden-map border-2 border-jade-medium/20 shadow-xl">
-       <iframe src="tinglin_map_fixed.html" class="content-iframe" title="Tinglin Garden Map"></iframe>
+       <iframe src="tinglin_map_with_tours.html" class="content-iframe" title="Tinglin Garden Map"></iframe>
      </div>
      <div class="mt-4 text-center">
         <p class="text-base text-jade-medium/80 font-medium">Interact with the map above to explore locations.</p>
      </div>
     </section>
 
-    <!-- MEMORY VIEW (默认 hidden) -->
+    <!-- MEMORY VIEW -->
     <section id="view-memory" class="mt-6 hidden" role="region" aria-label="Cultural memories and stories">
      
      <div id="memory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -467,11 +467,24 @@
       document.getElementById('welcome-text').style.fontSize = `${baseSize * 1.3}px`;
     }
 
-    // 确保 DOM 加载后执行一次
+    window.addEventListener('message', (event) => {
+        const data = event.data;
+
+        // Check if the message is the one we're expecting
+        if (data && data.type === 'openMemory' && typeof data.index !== 'undefined') {
+            // 1. Switch to the 'Memory' tab
+            switchTab('memory');
+
+            // 2. Open the specific story detail view
+            openMemory(data.index);
+        }
+    });
+
+    // DOM 
     document.addEventListener('DOMContentLoaded', () => {
       renderMemoryGrid();
       initParticles();
-      // 初始化时尝试加载配置
+      // initial
       if (window.elementSdk) {
         window.elementSdk.init({
             defaultConfig: defaultConfig,
@@ -482,7 +495,7 @@
             mapToEditPanelValues: (config) => new Map()
         });
       } else {
-        // 如果 SDK 没加载，直接应用默认配置
+        // if no SDK 
         applyConfig(defaultConfig);
       }
     });
