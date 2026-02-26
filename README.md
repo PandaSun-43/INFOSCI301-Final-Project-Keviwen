@@ -57,9 +57,15 @@ Information visualization; Geospatial storytelling; Community-based learning; Cu
 
 ## 🎬 Teaser Video
 
-[![Teaser Video](assets/teaser_video.mp4)](https://duke.zoom.us/rec/share/eIus6x9Ql7GaRMdIipUkUk9lDg-ShebbRaK28rNLw2orAvo4T0sAc0Tj1rJPsVi-.3np_yDBJsuFShx5N)
+<p align="center">
+  <a href="https://duke.zoom.us/rec/share/eIus6x9Ql7GaRMdIipUkUk9lDg-ShebbRaK28rNLw2orAvo4T0sAc0Tj1rJPsVi-.3np_yDBJsuFShx5N">
+    <img src="assets/teaser_figure.png" width="800">
+  </a>
+</p>
 
-▶ Click the image to watch the 3-minute scientific communication video.
+<p align="center">
+  ▶ Click the image above to watch the 3-minute project presentation.
+</p>
 
 https://duke.zoom.us/rec/share/eIus6x9Ql7GaRMdIipUkUk9lDg-ShebbRaK28rNLw2orAvo4T0sAc0Tj1rJPsVi-.3np_yDBJsuFShx5N
 
