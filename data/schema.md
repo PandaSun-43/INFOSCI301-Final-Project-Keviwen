@@ -1,4 +1,4 @@
-# Tinglin Garden – OpenStreetMap Tile Dataset (InfoSci 301)
+# Tinglin Garden – Dataset (InfoSci 301)
 
 ## Dataset Overview
 
