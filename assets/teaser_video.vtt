@@ -1,0 +1,70 @@
+WEBVTT
+
+1
+00:00:00.352 --> 00:00:12.571
+Kexin Zhang: Welcome to Tinling Garden, between a map and a memory. Our project offers an interactive map and 360-degree panorama of Tinling Garden in Kunshan, China. Next slide, please.
+
+2
+00:00:12.932 --> 00:00:29.032
+Kexin Zhang: Our motivation is simple. The official website of Teen Garden lacks intuitive spatial exploration tours. Visitors can only access the static images and text descriptions. There's no virtual tour or interactive map to navigate the garden.
+
+3
+00:00:29.192 --> 00:00:30.302
+Kexin Zhang: Next slide.
+
+4
+00:00:30.392 --> 00:00:47.852
+Kexin Zhang: So we have combined the two core elements, the geospatial navigation through an interactive map based on OpenStreetMap data, and immersive 360-degree panoramic viewing for a more lifelike exploration of key landmarks.
+
+5
+00:00:47.852 --> 00:00:57.821
+Kexin Zhang: This integration allows the users to interact with and learn more about the garden's cultural assets in a way that's more accessible and engaging.
+
+6
+00:00:57.982 --> 00:00:59.052
+Kexin Zhang: Next slide.
+
+7
+00:00:59.842 --> 00:01:17.642
+Yiwen Hu: Now, i'm going to walk you through our demo. The journey begins on our dashboard. With a single click on enter the interactive experience, users are taken to our central interface, where they can switch between two modes, map and memory.
+
+8
+00:01:17.672 --> 00:01:25.471
+Yiwen Hu: The map part offers the freedom to explore the garden's layout spatially, and the memory part is where we guide the narrative.
+
+9
+00:01:25.482 --> 00:01:41.462
+Yiwen Hu: Here we have transformed 9 iconic locations into rich and explorable 360-degree virtual tours. Let's show you how this works with one of our favorite stories, the Kunqu Opera Museum.
+
+10
+00:01:41.702 --> 00:01:58.702
+Yiwen Hu: First, you select a story card from the memory page, and this transforms you directly to the museum's entrance in a 360-degree view. From here, you can not only look around, but also follow a path.
+
+11
+00:01:58.912 --> 00:02:05.921
+Yiwen Hu: By clicking the go to next spot, you walk from the entrance to the courtyard.
+
+12
+00:02:06.052 --> 00:02:19.911
+Yiwen Hu: Then, you move past the pond to see the famous Taihu Stones, and then you can step into the main exhibition hall. Your last spot is the wonderful Opera stage, which is the soul of the museum.
+
+13
+00:02:19.982 --> 00:02:29.141
+Yiwen Hu: After this general view, you end your tour here. This is how we turn a simple museum visit into a memorable story.
+
+14
+00:02:29.232 --> 00:02:45.542
+Yiwen Hu: Then, for our team information, my name is Yiwen Hu, and I'm a student from class of 2026, majoring in data science. In this project, I focus on programming, user-centered interactions design, and technical implementation.
+
+15
+00:02:46.192 --> 00:03:02.171
+Kexin Zhang: I'm Keo Xinjiang, a mathematics major in Class of 2026. I'm focused on data cleaning and analysis structuring the cultural and historical information for the map, and I'm also in short alignment with the SDG goals. Next page.
+
+16
+00:03:04.632 --> 00:03:27.131
+Kexin Zhang: And this project is part of the course Info Science 301 at Duke Kunshan University. We thank Professor Luyao Zhang for her guidance, the N301 classmates for their feedback, and also the Jiading Distinct Urban Planning Exhibition Hall and the Kunshan Museum of Chinese Opera Genres for their valuable field insights.
+
+17
+00:03:27.342 --> 00:03:30.352
+Kexin Zhang: That's all. Thank you for your attention.
+
