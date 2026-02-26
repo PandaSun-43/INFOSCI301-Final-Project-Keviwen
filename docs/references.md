@@ -29,30 +29,18 @@ Inspired by the Digital Dunhuang project [6], our approach demonstrates how scal
 
 # References
 
-[1] Folium Documentation.  
-Folium: Python Data Visualization Library.  
+[1] Folium Documentation. Folium: Python Data Visualization Library.  
 Available at: https://python-visualization.github.io/folium/
 
-[2] Tong, C., Dykes, J., & Andrienko, G. (2019).  
-“Annotated Charts: Visualization as Storytelling.”  
-IEEE Transactions on Visualization and Computer Graphics (TVCG).
+[2] C. Tong, R. Roberts, R. Borgo, et al., “Storytelling in visualization: An extended survey,” Information Visualization, vol. 17, no. 1, pp. 66–90, 2018.
 
-[3] Li, Q., Sun, J., & Kender, J. (2018).  
-GeoCamera: A 3D Navigation System Supporting Cinematic Camera Movements in Geospatial Environments.  
-Proceedings of ACM SIGSPATIAL.
+[3] W. Li, Z. Wang, Y. Wang, et al., “GeoCamera: Telling Stories in Geographic Visualization with Camera Movements,” in Proc. of the 2023 CHI Conference on Human Factors in Computing Systems (CHI ’23), Hamburg, Germany, 2023, Article 635.
 
-[4] Zhang, Y., Wu, H., & Chen, L. (2021).  
-Digital Reconstruction and Aesthetic Rendering of Suzhou Classical Gardens.  
-Journal of Cultural Heritage.
+[4] M. Zhang, N. Jin, N. Xiang, and C. Ji, “Immersive Virtual Reality for Digital Cultural Tourism,” in ICVRT '24: Proceedings of the 2024 International Conference on Virtual Reality Technology, 2024, pp. 44–50. DOI: https://doi.org/10.1145/3711496.3711503
 
-[5] Yang, Z., Liu, X., & Wang, T. (2023).  
-AI-driven Multimodal Cultural Heritage Guidance Using Large Language Models.  
-IEEE Access.
+[5] J. Yang, S. Liu, X. Li, M. Jiang, Z. Deng, and J. Wan, “Design and Implementation of a Digital Human Guidance System Based on Multimodal Interaction and Large Language Models,” in AIFM ’25: Proceedings of the 2025 International Conference on Artificial Intelligence and Foundation Model, 2025, pp. 168–173. DOI: https://doi.org/10.1145/3786709.3786734
 
-[6] Digital Dunhuang Project.  
-Dunhuang Academy.  
-Available at: https://www.e-dunhuang.com/
+[6] Dunhuang Academy, “Digital Dunhuang,” 2016. [Online]. Available: https://www.e-dunhuang.com.
 
-[7] Pannellum Documentation.  
-Pannellum: Lightweight Web-based Panorama Viewer.  
+[7] Pannellum Documentation. Pannellum: Lightweight Web-based Panorama Viewer.  
 Available at: https://pannellum.org/
