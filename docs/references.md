@@ -1,18 +1,16 @@
-# Interaction Flow: 
+# Interaction Flow
  
-The Dashboard serves as the entry point, introducing the project goals and usage instructions. 
+- The Dashboard serves as the entry point, introducing the project goals and usage instructions. 
  
-The user enters the Folium Map Layer [1]. 
+- The user enters the Folium Map Layer [1]. 
  
-The Popup Card (Memory Layer) is triggered after clicking the mark. 
+- The Popup Card (Memory Layer) is triggered after clicking the mark. 
  
-Click the "Enter 360° Tour" button to enter the panorama Viewer. 
+- Click the "Enter 360° Tour" button to enter the panorama Viewer. 
  
-In panoramic scenes, scene jumps are achieved through hotspot. 
+- In panoramic scenes, scene jumps are achieved through hotspot. 
  
-This reflects: 
- 
-A progressive experience from Navigation → Narrative Discovery → Spatial Immersion.
+This reflects a progressive experience from Navigation → Narrative Discovery → Spatial Immersion.
 
 
 # Scholarly Contribution
