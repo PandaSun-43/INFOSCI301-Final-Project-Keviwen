@@ -9,8 +9,7 @@
 
 ## Abstract
 
-
-Tinglin Garden: Between Map & Memory is an interactive spatial visualization project that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan. It develops an interactive map and browser-based panorama system for Tinglin Garden in Kunshan. Our motivation is to address the limitation of the official website, which lacks spatial visualization and virtual exploration. Our project combines a map layer for spatial navigation with a 360° panorama layer for experiential exploration. The primary target audience includes local residents, university students at Duke Kunshan University (DKU), and other international visitors, particularly those who face language and spatial barriers when engaging with local cultural heritage. We provide bilingual site descriptions and structured spatial navigation to make Tinglin Garden more accessible to a diverse community. Our visualization combines landmark data (including geographic coordinates, bilingual metadata, and categorized cultural sites), OpenStreetMap basemaps, structured popup cards with images, and interconnected panoramic scenes rendered using Pannellum. Through this prototype, we hope to support informal cultural learning, improve spatial understanding of the park, and promote broader engagement with local heritage in a digitally accessible format.
+Tinglin Garden: Between Map & Memory is an interactive spatial visualization project that explores the cultural landscape of Tinglin Garden (亭林园), Kunshan. Our motivation is to address the limitation of the official website, which lacks spatial visualization and virtual exploration. Our project combines a map layer for spatial navigation with a 360° panorama layer for experiential exploration. The primary target audience includes local residents, university students at Duke Kunshan University (DKU), and other international visitors, particularly those who face language and spatial barriers when engaging with local cultural heritage. We provide bilingual site descriptions and structured spatial navigation to make Tinglin Garden more accessible to a diverse community. Our visualization combines landmark data (including geographic coordinates, bilingual metadata, and categorized cultural sites), OpenStreetMap basemaps, structured popup cards with images, and interconnected panoramic scenes rendered using Pannellum. Through this prototype, we hope to support informal cultural learning, improve spatial understanding of the park, and promote broader engagement with local heritage in a digitally accessible format.
 
 The entire system is deployed via GitHub Pages, requiring no backend.
 
@@ -167,33 +166,62 @@ Rather than treating heritage sites as isolated points, the project models Tingl
 ```plaintext
 INFOSCI301-Final-Project-Keviwen/
 │
-├── dashboard.html (Project Entry Page, Brief introduction and SDG alignment)
-├── app.html (Main Interactive Interface)
-├── detail_robot.html (Dedicated page for the “Robot Drink Service” site.)
-├── tinglin_map_with_tours.html (interactive map output.)
-├── tinglin_map.ipynb (Data Preprocessing Notebook)
+├── dashboard.html
+│   └── Project entry page (Intro & SDG alignment & Core Features & QR code & Entry)
 │
-├── pictures/ (All images used in popup cards)
+├── app.html
+│   └── Main interactive interface (Map + 360 panoramas integration)
 │
-├── VR/ (Panorama image assets, Memory-specific HTML files)
+├── tinglin_map_with_tours.html
+│   └── Exported Folium interactive map
+│
+├── detail_robot.html
+│   └── Detail page for the “Robot Drink Service” site
+│
+├── assets/
+│   ├── teaser_figure.png
+│   ├── teaser_video.mp4
+│   ├── teaser_video.vtt (transcription)
+│   └── final_poster.pdf
+│
+├── data/
+│   ├── Tinglin-map.osm
+│   ├── metadata.csv
+│   └── schema.md
+│
+├── src/
+│   ├── tinglin_map.py
+│   └── requirements.txt
+│
+├── docs/
+│   ├── interaction_diagram.svg
+│   ├── system_architecture.svg
+│   └── references.md
+│
+├── pictures/
+│   └── Popup card image assets
+│   └── SDG goals signs
+│   └── QR code on dashboard
+│
+├── VR/
 │   ├── dragon/
-      └── memory_dragon.html
-      └── images
-      └── scenes.js
-      └── main.js
-      └── style.css
-    ├── guyanwu/
-      └── memory_guyanwu.html
-      └── images
-      └── scenes.js
-      └── main.js
-      └── style.css
+│           └── memory_dragon.html
+│           └── images
+│           └── scenes.js
+│           └── main.js
+│           └── style.css
+│   ├── guyanwu/
+│           └── memory_guyanwu.html
+│           └── images
+│           └── scenes.js
+│           └── main.js
+│           └── style.css
 │   ├── kunqu/
-      └── memory_kunqu.html
-      └── images
-      └── scenes.js
-      └── main.js
-      └── style.css
+│           └── memory_kunqu.html
+│           └── images
+│           └── scenes.js
+│           └── main.js
+│           └── style.css
 │   ├── ...
 │
 └── README.md
