@@ -194,8 +194,10 @@ INFOSCI301-Final-Project-Keviwen/
 │   └── requirements.txt
 │
 ├── docs/
-│   ├── interaction_diagram.svg
-│   ├── system_architecture.svg
+│   ├── Fig1.png (Flowchart illustration: Fieldwork assets --> InfoVis --> SDG goals --> Community)
+│   ├── Fig2.png (Flowchart for workflow)
+│   ├── Fig3.svg (Implemented Interactive Demo)
+│   ├── Fig4.svg (From Theory to Design)
 │   └── references.md
 │
 ├── pictures/
