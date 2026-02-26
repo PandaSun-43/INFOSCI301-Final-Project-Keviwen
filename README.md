@@ -59,7 +59,7 @@ Information visualization; Geospatial storytelling; Community-based learning; Cu
 
 <p align="center">
   <a href="https://duke.zoom.us/rec/share/eIus6x9Ql7GaRMdIipUkUk9lDg-ShebbRaK28rNLw2orAvo4T0sAc0Tj1rJPsVi-.3np_yDBJsuFShx5N">
-    <img src="assets/teaser_video.mp4" width="800">
+    <img src="assets/teaser_video.png" width="800">
   </a>
 </p>
 
