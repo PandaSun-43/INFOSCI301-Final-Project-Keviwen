@@ -63,7 +63,7 @@ https://duke.zoom.us/rec/share/eIus6x9Ql7GaRMdIipUkUk9lDg-ShebbRaK28rNLw2orAvo4T
 - Explanation: The video presents the “Tinglin Garden: Between Map and Memory” project, which integrates cultural heritage with modern technology by offering an interactive map and 360° panoramic experience of Tinglin Garden in Kunshan, China. The project addresses the limitations of the official website, which lacks interactive spatial tools, by providing a dynamic map based on OpenStreetMap data and immersive panoramic views. This integration enhances user engagement and accessibility to the garden’s cultural assets. The video also demonstrates the user experience and concludes with acknowledgments to Professor Luyao Zhang for her guidance, as well as the feedback from classmates and insights from local field partners.
 
 ### Canva Poster:
-![Canva_Poster](assets/teaser_video.mp4)
+![Canva_Poster](assets/final_poster.png)
 
 https://www.canva.com/design/DAHA0Gu_rUk/Emvd0Qnb-Ewk70zy2ekClA/edit?utm_content=DAHA0Gu_rUk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
