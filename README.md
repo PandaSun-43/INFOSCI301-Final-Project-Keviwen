@@ -245,7 +245,7 @@ class F output;
 ```
 
 ### Design Flow
-![Fig 3](doc/Fig3.svg)
+![Fig 3](docs/Fig3.svg)
 
 ## 📁 Repository Structure
 
