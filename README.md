@@ -173,6 +173,79 @@ Rather than treating heritage sites as isolated points, the project models Tingl
 
 ## 📁 Repository Structure
 
+### Data Workflow
+```mermaid
+flowchart LR
+
+%% =====================
+%% SOURCE DATASETS
+%% =====================
+
+A["OSM Extract<br>/data/Tinglin-map.osm"]
+B["Field Metadata<br>/data/metadata.csv"]
+C["Image Assets<br>/pictures/"]
+
+%% =====================
+%% PREPROCESSING
+%% =====================
+
+A1["Boundary Filtering"]
+B1["Manual Cleaning<br>Standardize Coordinates"]
+C1["Image Review<br>Privacy Check"]
+
+%% =====================
+%% SCHEMA ALIGNMENT
+%% =====================
+
+D["Schema Alignment<br>Primary Key: site_id"]
+D2["Derived Variables<br>popup_html<br>marker styling"]
+
+%% =====================
+%% FINAL DATASET
+%% =====================
+
+E["Unified Logical Dataset<br>(Geometry + Attributes + Media)"]
+
+%% =====================
+%% VISUALIZATION
+%% =====================
+
+F["Interactive Map Rendering<br>src/tinglin_map.py"]
+
+%% =====================
+%% FLOW
+%% =====================
+
+A --> A1
+B --> B1
+C --> C1
+
+A1 --> D
+B1 --> D
+C1 --> D
+
+D --> D2
+D2 --> E
+E --> F
+
+%% =====================
+%% COLOR STYLING
+%% =====================
+
+classDef source fill:#D6EAF8,stroke:#1B4F72,stroke-width:2px;
+classDef process fill:#FCF3CF,stroke:#7D6608,stroke-width:2px;
+classDef schema fill:#D5F5E3,stroke:#145A32,stroke-width:2px;
+classDef unified fill:#E8DAEF,stroke:#512E5F,stroke-width:2px;
+classDef output fill:#F5B7B1,stroke:#7B241C,stroke-width:2px;
+
+class A,B,C source;
+class A1,B1,C1 process;
+class D,D2 schema;
+class E unified;
+class F output;
+
+```
+
 ```plaintext
 INFOSCI301-Final-Project-Keviwen/
 │
