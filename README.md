@@ -171,8 +171,6 @@ This project conceptualizes:
 
 Rather than treating heritage sites as isolated points, the project models Tinglin Garden as a network of spatially connected cultural nodes.
 
-## 📁 Repository Structure
-
 ### Data Workflow
 ```mermaid
 flowchart LR
@@ -245,6 +243,11 @@ class E unified;
 class F output;
 
 ```
+
+### Design Flow
+![Fig 3](doc/Fig3.svg)
+
+## 📁 Repository Structure
 
 ```plaintext
 INFOSCI301-Final-Project-Keviwen/
